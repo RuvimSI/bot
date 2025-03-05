@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Выбор мероприятия</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        button { padding: 10px; margin: 10px; font-size: 16px; }
+    </style>
+</head>
+<body>
+    <h2>Выберите мероприятие</h2>
+    <div id="buttons"></div>
+
+    <script>
+        const tg = window.Telegram.WebApp;
+        tg.expand();
+
+        const options = {
+            "Музей шоколада": "https://t.me/+00B3_VQJLJA4NmVi",
+            "Музей мороженного": "https://t.me/+SsJvQDluIro4NjMy",
+            "Музей карамели": "https://t.me/+jlDp9vsUrOJkNTgy",
+            "Боулинг ТЦ Глобус": "https://t.me/+rU2GSPRs4JxmYjI6",
+            "WarPoint ТЦ Алые паруса": "https://t.me/+jgnB1wen-2dlZTdi"
+        };
+
+        const buttonsDiv = document.getElementById("buttons");
+        Object.keys(options).forEach(event => {
+            let btn = document.createElement("button");
+            btn.innerText = event;
+            btn.onclick = () => {
+                tg.sendData(event);
+                tg.close();
+            };
+            buttonsDiv.appendChild(btn);
+        });
+    </script>
+</body>
+</html>
