@@ -24,7 +24,7 @@ async def start(message: types.Message):
     keyboard = ReplyKeyboardMarkup(resize_keyboard=True)
     web_app_button = KeyboardButton(
         text="Выбрать мероприятие",
-        web_app=WebAppInfo(url="https://telegram-webapp.onrender.com")
+        web_app=WebAppInfo(url="https://bot-grvt.onrender.com/")
     )
     keyboard.add(web_app_button)
 
